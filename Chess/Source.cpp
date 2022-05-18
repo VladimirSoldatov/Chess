@@ -24,8 +24,10 @@ class Desk
 {
 	int DeskTable[8][8];
 public:
+	Desk()
+	{
 
-	Desk();
+	}
 };
  class Figure 
  {
