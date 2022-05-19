@@ -9,24 +9,42 @@ enum FigireColor {White=0, Black=1};
 
 class Desk
 {
+	static int count;
 	int size;
 	int DeskTable[8][8];
-public:
 	Desk()
 	{
 		size = 8;
-		for (int i = 0; i < size; i++) 
+		for (int i = 0; i < size; i++)
 		{
 			for (int j = 0; j < size; j++)
 			{
 				DeskTable[i][j] = 0;
 			}
 		}
+		SetCount();
 	}
+	static void SetCount() {
+		if (count == NULL)
+			count = 0;
+		count++;
+	}
+public:
+	static Desk GetInstatces() {
+		if (count > 0)
+			return Desk();
+		else
+		{
+			return *this;
+		}
+
+	}
+	
 	~Desk() {
 		cout << "End Game" << endl;
 	}
 };
+
  class Figure 
  {
 	 char* name = 0;
@@ -84,7 +102,10 @@ public:
 		 cout << "Black Kons created";
 		
 
-	}	  
+	}
+	 void creatDesk() {
+		 Desk::GetInstatces();
+	 }
  };
  class Game
  {
@@ -107,5 +128,6 @@ public:
  };
 int main() {
 	Game game;
+
 	return 0;
 }
