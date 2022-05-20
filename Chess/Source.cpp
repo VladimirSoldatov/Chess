@@ -56,7 +56,7 @@ public:
 			cout << endl<<endl << endl << endl;
 		}
 	}
-	void set_monotor() {
+	void set_monitor() {
 		HWND hWindowConsole = GetConsoleWindow();
 		RECT r;
 		GetWindowRect(hWindowConsole, &r); 
@@ -158,7 +158,7 @@ int main() {
 	game.create_desk();
 	Desk* my_desk = Desk::GetInstatces();
 	my_desk->get_values();
-	my_desk->set_monotor();
+	my_desk->set_monitor();
 
 	return 0;
 }
