@@ -37,9 +37,13 @@ class Desk
 
 public:
 	static Desk * GetInstatces() {
-		if (!p_instance)
+		if (!p_instance) {
 			p_instance = new Desk();
-		cout << "Create Desk" << endl;
+			cout << "Create Desk" << endl;
+		}
+		else {
+			cout << "Use old instances";
+		}
 		return p_instance;
 
 	}
@@ -56,7 +60,7 @@ public:
 		HWND hWindowConsole = GetConsoleWindow();
 		RECT r;
 		GetWindowRect(hWindowConsole, &r); 
-		MoveWindow(hWindowConsole, r.left, r.top, 800, 800, TRUE);
+		MoveWindow(hWindowConsole, r.left, r.top, 800, 600, TRUE);
 	}
 	~Desk() {
 		cout << "End Game" << endl;
@@ -145,7 +149,7 @@ Desk* Desk::p_instance = NULL;
 		 blackFabric.createFigures();
 	 }
 	 void create_desk() {
-		 Desk::GetInstatces();
+		 Desk * my_desk = Desk::GetInstatces();
 	 }
  };
 int main() {
