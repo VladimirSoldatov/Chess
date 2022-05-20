@@ -72,6 +72,7 @@ Desk* Desk::p_instance = NULL;
 	 char* name = 0;
 	 char* color = 0;
 	 int colorCode = 0;
+	 bool safe = 0;
  public:
 
 	 virtual void setColor(const char* your_color, int your_code) = 0;
@@ -82,13 +83,15 @@ Desk* Desk::p_instance = NULL;
 	 char* name;
 	 char* color;
 	 int colorCode;
+	 bool safe;
 
  public:
 	 KonClass(const char* your_name, const char* your_color, int yourColor)
 	 {
+		 safe = false;
 		 name = new char[100];
 		 color = new char[50];
-		 strcpy_s(name, sizeof(your_name)*2, your_name);
+		 strcpy_s(name, sizeof(your_name)*3, your_name);
 		 strcpy_s(color, sizeof(your_color), your_color);
 		 colorCode = Black;
 		 cout << name << " created" <<endl;
@@ -112,6 +115,151 @@ Desk* Desk::p_instance = NULL;
 		 return color;
 	 }
  };
+ class SlonClass :Figure {
+	 char* name;
+	 char* color;
+	 int colorCode;
+	 bool safe;
+
+ public:
+	 SlonClass(const char* your_name, const char* your_color, int yourColor)
+	 {
+		 safe = false;
+		 name = new char[100];
+		 color = new char[50];
+		 strcpy_s(name, sizeof(your_name) * 3, your_name);
+		 strcpy_s(color, sizeof(your_color), your_color);
+		 colorCode = Black;
+		 cout << name << " created" << endl;
+	 }
+	 ~SlonClass()
+	 {
+		 delete name;
+		 delete color;
+	 }
+	 void setName(const char* your_name)
+	 {
+		 strcpy_s(color, sizeof(your_name), your_name);
+	 }
+	 void setColor(const char* your_color, int your_code)
+	 {
+		 strcpy_s(color, sizeof(your_color), your_color);
+		 colorCode = your_code;
+	 }
+	 char* GetColor()
+	 {
+		 return color;
+	 }
+ };
+ class LadiyaClass :Figure {
+	 char* name;
+	 char* color;
+	 int colorCode;
+	 bool safe;
+
+ public:
+	 LadiyaClass(const char* your_name, const char* your_color, int yourColor)
+	 {
+		 safe = false;
+		 name = new char[100];
+		 color = new char[50];
+		 strcpy_s(name, sizeof(your_name) * 3, your_name);
+		 strcpy_s(color, sizeof(your_color), your_color);
+		 colorCode = Black;
+		 cout << name << " created" << endl;
+	 }
+	 ~LadiyaClass()
+	 {
+		 delete name;
+		 delete color;
+	 }
+	 void setName(const char* your_name)
+	 {
+		 strcpy_s(color, sizeof(your_name), your_name);
+	 }
+	 void setColor(const char* your_color, int your_code)
+	 {
+		 strcpy_s(color, sizeof(your_color), your_color);
+		 colorCode = your_code;
+	 }
+	 char* GetColor()
+	 {
+		 return color;
+	 }
+ };
+ class QueenClass :Figure {
+	 char* name;
+	 char* color;
+	 int colorCode;
+	 bool safe;
+
+ public:
+	 QueenClass(const char* your_name, const char* your_color, int yourColor)
+	 {
+		 safe = false;
+		 name = new char[100];
+		 color = new char[50];
+		 strcpy_s(name, sizeof(your_name) * 3, your_name);
+		 strcpy_s(color, sizeof(your_color), your_color);
+		 colorCode = Black;
+		 cout << name << " created" << endl;
+	 }
+	 ~QueenClass()
+	 {
+		 delete name;
+		 delete color;
+	 }
+	 void setName(const char* your_name)
+	 {
+		 strcpy_s(color, sizeof(your_name), your_name);
+	 }
+	 void setColor(const char* your_color, int your_code)
+	 {
+		 strcpy_s(color, sizeof(your_color), your_color);
+		 colorCode = your_code;
+	 }
+	 char* GetColor()
+	 {
+		 return color;
+	 }
+ };
+ class KingClass :Figure {
+		 char* name;
+		 char* color;
+		 int colorCode;
+		 bool safe;
+
+	 public:
+		 KingClass(const char* your_name, const char* your_color, int yourColor)
+		 {
+			 safe = true;
+			 name = new char[100];
+			 color = new char[50];
+			 strcpy_s(name, sizeof(your_name) * 3, your_name);
+			 strcpy_s(color, sizeof(your_color), your_color);
+			 colorCode = Black;
+			 cout << name << " created" << endl;
+		 }
+		 ~KingClass()
+		 {
+			 delete name;
+			 delete color;
+		 }
+		 void setName(const char* your_name)
+		 {
+			 strcpy_s(color, sizeof(your_name), your_name);
+		 }
+		 void setColor(const char* your_color, int your_code)
+		 {
+			 strcpy_s(color, sizeof(your_color), your_color);
+			 colorCode = your_code;
+		 }
+		 char* GetColor()
+		 {
+			 return color;
+		 }
+	 
+	 };
  class AbstractFabric {
  public:
 	 virtual void createFigures() = 0;
@@ -122,7 +270,13 @@ Desk* Desk::p_instance = NULL;
 	 {
 		 KonClass blackLeftKon("Left Black Kon", "Black", 1);
 		 KonClass blackRightKon("Right Black Kon", "Black", 1);
-	
+		 LadiyaClass blackLeftLadiya("Left Black Ladiya", "Black", 1);
+
+		 LadiyaClass blackRightLadiya("Right Black Ladiya", "Black", 1);
+		 SlonClass blackLeftSlon("Left Black Slon", "Black", 1);
+		 SlonClass blackRighSlon("Right Black Slon", "Black", 1);
+		 QueenClass blackQueen("Black Queen", "Black", 1);
+		 KingClass blackKing("Black King", "Black", 1);
 		
 
 	}
