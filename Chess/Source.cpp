@@ -13,7 +13,7 @@ enum FigireColor {White=0, Black=1};
 
 class Desk
 {
-	static int count;
+
 	int size;
 	static Desk* p_instance;
 	int DeskTable[8][8];
@@ -80,9 +80,9 @@ Desk* Desk::p_instance = NULL;
 	 virtual char * GetColor() = 0;
 };
  class KonClass :Figure {
-	 char* name;
-	 char* color;
-	 int colorCode;
+	 char* name; //имя фигуры
+	 char* color;// цвет
+	 int colorCode; //код цвета
 	 bool safe;
 
  public:
@@ -311,8 +311,9 @@ int main() {
 	game.createFabric();
 	game.create_desk();
 	Desk* my_desk = Desk::GetInstatces();
-	my_desk->get_values();
 	my_desk->set_monitor();
+	my_desk->get_values();
+
 
 	return 0;
 }
